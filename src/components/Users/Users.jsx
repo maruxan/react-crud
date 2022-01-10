@@ -3,6 +3,7 @@ import React from 'react';
 import useUsers from '../../hooks/useUsers';
 // components
 import Card from '../ui/Card';
+import { FiUsers } from 'react-icons/fi';
 
 export default function Users() {
   const { users } = useUsers();
@@ -23,7 +24,10 @@ export default function Users() {
 
   return (
     <Card>
-      <h1 className="mb-2 text-xl font-bold border-b-2 border-purple-600">Users</h1>
+      <div className="flex items-center mb-2 text-xl font-bold ">
+        <FiUsers className="text-purple-800 mr-3" />
+        <h1>Users</h1>
+      </div>
       <table className="w-full table-fixed">
         <thead>
           <tr className="h-10">
