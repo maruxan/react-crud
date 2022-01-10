@@ -1,5 +1,8 @@
 import React from 'react';
+// hooks
 import useUsers from '../../hooks/useUsers';
+// components
+import Card from '../ui/Card';
 
 export default function Users() {
   const { users } = useUsers();
@@ -19,7 +22,7 @@ export default function Users() {
   );
 
   return (
-    <div className="my-6 p-6 bg-gray-50 rounded-md shadow-md">
+    <Card>
       <h1 className="mb-2 text-xl font-bold border-b-2 border-purple-600">Users</h1>
       <table className="w-full table-fixed">
         <thead>
@@ -31,6 +34,6 @@ export default function Users() {
         </thead>
         <tbody>{usersList}</tbody>
       </table>
-    </div>
+    </Card>
   );
 }
