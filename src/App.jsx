@@ -2,7 +2,7 @@ import Users from './components/Users/Users';
 
 function App() {
   return (
-    <div>
+    <div className="container mx-auto">
       <Users />
     </div>
   );

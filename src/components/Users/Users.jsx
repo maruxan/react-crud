@@ -6,18 +6,31 @@ export default function Users() {
 
   const usersList = users ? (
     users.map((user, i) => (
-      <li key={i}>
-        {user.username}: {user.name}
-      </li>
+      <tr key={i} className="border-t h-8 text-gray-600 hover:text-black">
+        <td>{user.username.toLowerCase()}</td>
+        <td>{user.name}</td>
+        <td>{user.email.toLowerCase()}</td>
+      </tr>
     ))
   ) : (
-    <p>Loading users...</p>
+    <tr>
+      <td>Loading users...</td>
+    </tr>
   );
 
   return (
-    <div>
-      <h1>Users</h1>
-      <ul>{usersList}</ul>
+    <div className="my-6 p-6 bg-gray-50 rounded-md shadow-md">
+      <h1 className="mb-2 text-xl font-bold border-b-2 border-purple-600">Users</h1>
+      <table className="w-full table-fixed">
+        <thead>
+          <tr className="h-10">
+            <th className="text-left">username</th>
+            <th className="text-left">name</th>
+            <th className="text-left">email</th>
+          </tr>
+        </thead>
+        <tbody>{usersList}</tbody>
+      </table>
     </div>
   );
 }
