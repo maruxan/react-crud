@@ -24,14 +24,23 @@ const useUsers = () => {
     setUsers(cachedUsers);
   }, []);
 
+  const findUserByUsername = (username) => {
+    return users.find((user) => user.username.toLowerCase() === username.toLowerCase());
+  };
+
   const addUser = (newUser) => {
-    const cachedUsers = store.getItem('users');
-    const newUsersList = [...cachedUsers, { ...newUser, id: uuid() }];
+    const newUsersList = [...users, { ...newUser, id: uuid() }];
     store.setItem('users', newUsersList);
     setUsers(newUsersList);
   };
 
-  return { users, addUser };
+  const deleteUser = (userId) => {
+    const filteredUsers = users.filter((user) => user.id !== userId);
+    store.setItem('users', filteredUsers);
+    setUsers(filteredUsers);
+  };
+
+  return { users, addUser, findUserByUsername, deleteUser };
 };
 
 export default useUsers;
