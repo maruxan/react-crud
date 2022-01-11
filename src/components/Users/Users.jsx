@@ -8,7 +8,7 @@ import { FiUsers } from 'react-icons/fi';
 export default function Users({ users }) {
   const usersList = users ? (
     users.map((user, i) => (
-      <tr key={i} className="border-t h-8 text-gray-600 hover:text-black">
+      <tr key={i} className="border-t h-8 text-gray-600 hover:text-purple-800">
         <td>{user.username.toLowerCase()}</td>
         <td>{user.name}</td>
         <td>{user.email.toLowerCase()}</td>
