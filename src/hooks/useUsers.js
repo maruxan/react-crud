@@ -40,7 +40,15 @@ const useUsers = () => {
     setUsers(filteredUsers);
   };
 
-  return { users, addUser, findUserByUsername, deleteUser };
+  const updateUser = (userId, newValues) => {
+    const updatedUsers = users.map((user) =>
+      user.id === userId ? { ...user, ...newValues } : user
+    );
+    store.setItem('users', updatedUsers);
+    setUsers(updatedUsers);
+  };
+
+  return { users, addUser, findUserByUsername, deleteUser, updateUser };
 };
 
 export default useUsers;
