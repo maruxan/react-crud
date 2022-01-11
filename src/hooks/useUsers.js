@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+import { v4 as uuid } from 'uuid';
+// axios
 import httpClient from '../axios/custom-client';
+// utils
 import { store } from '../utils/utils';
 
 const useUsers = () => {
@@ -23,7 +26,7 @@ const useUsers = () => {
 
   const addUser = (newUser) => {
     const cachedUsers = store.getItem('users');
-    const newUsersList = [...cachedUsers, newUser];
+    const newUsersList = [...cachedUsers, { ...newUser, id: uuid() }];
     store.setItem('users', newUsersList);
     setUsers(newUsersList);
   };
