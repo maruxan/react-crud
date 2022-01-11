@@ -5,9 +5,7 @@ import useUsers from '../../hooks/useUsers';
 import Card from '../ui/Card';
 import { FiUsers } from 'react-icons/fi';
 
-export default function Users() {
-  const { users } = useUsers();
-
+export default function Users({ users }) {
   const usersList = users ? (
     users.map((user, i) => (
       <tr key={i} className="border-t h-8 text-gray-600 hover:text-black">
@@ -31,9 +29,9 @@ export default function Users() {
       <table className="w-full table-fixed">
         <thead>
           <tr className="h-10">
-            <th className="text-left">username</th>
-            <th className="text-left">name</th>
-            <th className="text-left">email</th>
+            <th className="text-left">Username</th>
+            <th className="text-left">Name</th>
+            <th className="text-left">Email</th>
           </tr>
         </thead>
         <tbody>{usersList}</tbody>

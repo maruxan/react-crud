@@ -21,7 +21,14 @@ const useUsers = () => {
     setUsers(cachedUsers);
   }, []);
 
-  return { users };
+  const addUser = (newUser) => {
+    const cachedUsers = store.getItem('users');
+    const newUsersList = [...cachedUsers, newUser];
+    store.setItem('users', newUsersList);
+    setUsers(newUsersList);
+  };
+
+  return { users, addUser };
 };
 
 export default useUsers;
