@@ -13,7 +13,7 @@ export default function DeleteUser({ findByUsername, deleteUser }) {
   };
 
   const findUserHandler = () => {
-    const user = findByUsername(userInputRef.current.value);
+    const user = findByUsername(userInputRef.current.value) || 'NOT_FOUND';
     setFoundUser(user);
   };
 
@@ -24,6 +24,7 @@ export default function DeleteUser({ findByUsername, deleteUser }) {
 
   let userAction;
   switch (foundUser) {
+    // user query empty
     case null:
       userAction = (
         <button
@@ -34,7 +35,8 @@ export default function DeleteUser({ findByUsername, deleteUser }) {
       );
       break;
 
-    case undefined:
+    // find user query returned undefined
+    case 'NOT_FOUND':
       userAction = (
         <div className="grid grid-cols-2 gap-3 mt-3">
           <p className="p-3">User not found</p>
@@ -47,6 +49,7 @@ export default function DeleteUser({ findByUsername, deleteUser }) {
       );
       break;
 
+    // successful user query
     default:
       userAction = (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
@@ -84,7 +87,7 @@ export default function DeleteUser({ findByUsername, deleteUser }) {
             disabled={foundUser === null ? false : true}
           />
         </div>
-        {foundUser && (
+        {foundUser && foundUser !== 'NOT_FOUND' && (
           <>
             <div>
               <label className="font-bold">Name</label>
