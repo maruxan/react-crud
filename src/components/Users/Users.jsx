@@ -6,19 +6,20 @@ import Card from '../ui/Card';
 import { FiUsers } from 'react-icons/fi';
 
 export default function Users({ users }) {
-  const usersList = users ? (
-    users.map((user, i) => (
-      <tr key={i} className="border-t h-8 text-gray-600 hover:text-purple-800">
-        <td>{user.username.toLowerCase()}</td>
-        <td>{user.name}</td>
-        <td>{user.email.toLowerCase()}</td>
+  const usersList =
+    users.length > 0 ? (
+      users.map((user, i) => (
+        <tr key={i} className="border-t h-8 text-gray-600 hover:text-purple-800">
+          <td>{user.username.toLowerCase()}</td>
+          <td>{user.name}</td>
+          <td>{user.email.toLowerCase()}</td>
+        </tr>
+      ))
+    ) : (
+      <tr>
+        <td>Loading users...</td>
       </tr>
-    ))
-  ) : (
-    <tr>
-      <td>Loading users...</td>
-    </tr>
-  );
+    );
 
   return (
     <Card>

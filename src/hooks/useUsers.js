@@ -13,11 +13,14 @@ const useUsers = () => {
       .get('/users')
       .then((res) => res.data)
       .then((data) => store.setItem('users', data))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        store.setItem('users', []);
+      });
   }
 
   useEffect(async () => {
-    if (!store.getItem('users')) {
+    if (!store.getItem('users') || store.getItem('users')?.length < 1) {
       await fetchUsers();
     }
     const cachedUsers = store.getItem('users');
