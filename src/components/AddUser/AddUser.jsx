@@ -37,7 +37,7 @@ export default function AddUser({ addUser }) {
         <FiUserPlus className="text-purple-800 mr-3" />
         <h1>Add user</h1>
       </div>
-      <form className="mt-4 grid md:grid-cols-3 gap-3" onSubmit={submitHandler}>
+      <form className="mt-4 grid gap-3" onSubmit={submitHandler}>
         <div className="flex flex-col">
           <label htmlFor="username" className="font-bold">
             Username
@@ -79,7 +79,7 @@ export default function AddUser({ addUser }) {
         </div>
         <button
           type="submit"
-          className="md:col-span-3 p-3 rounded-md bg-purple-800 text-white hover:bg-purple-900 transition-all">
+          className="p-3 rounded-md bg-purple-800 text-white hover:bg-purple-900 transition-all">
           Add user
         </button>
       </form>

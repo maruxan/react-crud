@@ -10,11 +10,15 @@ function App() {
   const { users, addUser, findUserByUsername, deleteUser, updateUser } = useUsers();
 
   return (
-    <div className="container mx-auto max-w-3xl">
-      <Users users={users} />
-      <AddUser addUser={addUser} />
-      <DeleteUser findByUsername={findUserByUsername} deleteUser={deleteUser} />
-      <UpdateUser findByUsername={findUserByUsername} updateUser={updateUser} />
+    <div className="max-w-6xl p-6 mx-auto lg:grid grid-cols-3 gap-6">
+      <div className="col-span-2">
+        <Users users={users} />
+      </div>
+      <div>
+        <AddUser addUser={addUser} />
+        <DeleteUser findByUsername={findUserByUsername} deleteUser={deleteUser} />
+        <UpdateUser findByUsername={findUserByUsername} updateUser={updateUser} />
+      </div>
     </div>
   );
 }

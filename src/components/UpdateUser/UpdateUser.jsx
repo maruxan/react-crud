@@ -67,8 +67,8 @@ export default function UpdateUser({ findByUsername, updateUser }) {
     // successful user query
     default:
       userAction = (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
-          <p className="p-3 col-span-2 md:col-span-1">Update this user?</p>
+        <div className="grid grid-cols-2 gap-3 mt-3">
+          <p className="p-3 col-span-2 rounded-md bg-blue-50 text-blue-900">Update this user?</p>
           <button
             onClick={resetForm}
             className="p-3 rounded-md text-purple-800 bg-purple-100 hover:bg-purple-200 transition-all">
@@ -90,7 +90,7 @@ export default function UpdateUser({ findByUsername, updateUser }) {
         <FiUserCheck className="text-purple-800 mr-3" />
         <h1>Update user</h1>
       </div>
-      <div className="mt-4 grid md:grid-cols-3 gap-3">
+      <div className="mt-4 grid gap-3">
         <div className="flex flex-col">
           <label htmlFor="username" className="font-bold">
             Username
@@ -104,10 +104,7 @@ export default function UpdateUser({ findByUsername, updateUser }) {
           />
         </div>
         {foundUser && foundUser !== 'NOT_FOUND' && (
-          <form
-            className="md:col-span-2 grid grid-cols-2 gap-3"
-            id="update-form"
-            onSubmit={updateUserHandler}>
+          <form className="grid gap-3" id="update-form" onSubmit={updateUserHandler}>
             <div className="flex flex-col">
               <label className="font-bold" htmlFor="name">
                 New name

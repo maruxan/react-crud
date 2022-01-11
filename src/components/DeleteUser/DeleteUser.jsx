@@ -52,8 +52,8 @@ export default function DeleteUser({ findByUsername, deleteUser }) {
     // successful user query
     default:
       userAction = (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
-          <p className="p-3 col-span-2 md:col-span-1">Delete this user?</p>
+        <div className="grid grid-cols-2 gap-3 mt-3">
+          <p className="p-3 col-span-2 rounded-md bg-red-100 text-red-900">Delete this user?</p>
           <button
             onClick={resetForm}
             className="p-3 rounded-md text-purple-800 bg-purple-100 hover:bg-purple-200 transition-all">
@@ -74,7 +74,7 @@ export default function DeleteUser({ findByUsername, deleteUser }) {
         <FiUserX className="text-purple-800 mr-3" />
         <h1>Delete user</h1>
       </div>
-      <div className="mt-4 grid md:grid-cols-3 gap-3">
+      <div className="mt-4 grid gap-3">
         <div className="flex flex-col">
           <label htmlFor="username" className="font-bold">
             Username
