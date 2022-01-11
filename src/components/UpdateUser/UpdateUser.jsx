@@ -31,7 +31,8 @@ export default function UpdateUser({ findByUsername, updateUser }) {
     setFoundUser(user);
   };
 
-  const updateUserHandler = () => {
+  const updateUserHandler = (event) => {
+    event.preventDefault();
     updateUser(foundUser.id, updateFields);
     resetForm();
   };
@@ -74,7 +75,8 @@ export default function UpdateUser({ findByUsername, updateUser }) {
             Cancel
           </button>
           <button
-            onClick={updateUserHandler}
+            type="submit"
+            form="update-form"
             className="p-3 rounded-md bg-purple-800 text-white hover:bg-purple-900 transition-all">
             Update
           </button>
@@ -102,7 +104,10 @@ export default function UpdateUser({ findByUsername, updateUser }) {
           />
         </div>
         {foundUser && foundUser !== 'NOT_FOUND' && (
-          <div className="md:col-span-2 grid grid-cols-2 gap-3">
+          <form
+            className="md:col-span-2 grid grid-cols-2 gap-3"
+            id="update-form"
+            onSubmit={updateUserHandler}>
             <div className="flex flex-col">
               <label className="font-bold" htmlFor="name">
                 New name
@@ -122,7 +127,7 @@ export default function UpdateUser({ findByUsername, updateUser }) {
                 New email
               </label>
               <input
-                type="text"
+                type="email"
                 name="email"
                 value={updateFields.email}
                 onChange={fieldChangeHandler}
@@ -131,7 +136,7 @@ export default function UpdateUser({ findByUsername, updateUser }) {
                 required
               />
             </div>
-          </div>
+          </form>
         )}
       </div>
       {userAction}
